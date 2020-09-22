@@ -1,63 +1,59 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import 'semantic-ui-css/semantic.min.css'
+
+const option = ["rock", "paper", "scissors"];
 
 class App extends React.Component {
-    state = {
-      userChoice: '',
-      winner: ''
-    };
+  state = {
+    userChoice: "",
+    winner: "",
+    computerChoice: ""
+  };
 
   chooseUserWeapon = (event) => {
-    this.setState({userChoice: event.target.name})
-  }
+    this.setState({ userChoice: event.target.name });
+  };
 
   playGame = async () => {
-    let userWeapon = this.state.userChoice
-    let computerWeapon = 'rock'
-    debugger
-    let winner = await this.theWinnerIs(userWeapon, computerWeapon)
-    debugger
-    this.setState({winner: winner})
-  }
+    let userWeapon = this.state.userChoice;
+    let computerWeapon = "rock"
+    debugger;
+    let winner = await this.theWinnerIs(userWeapon, computerWeapon);
+
+    this.setState({ winner: winner });
+  };
 
   theWinnerIs = (userWeapon, computerWeapon) => {
-if (userWeapon !== computerWeapon) {
-  return 'USER WINS!'
-} else {
-  return 'ITS A TIE!'
-}
-  }
+    if (userWeapon !== computerWeapon) {
+      return "USER WINS!";
+    } else {
+      return "ITS A TIE!";
+    }
+  };
   render() {
-    return ( 
+    return (
       <div>
-     
-      {/* <h2>
+        {/* <h2>
         User {this.props.rock} 
       </h2> */}
-      <button
-      id="button"
-      name='rock'
-        onClick={this.chooseUserWeapon}>
-          Rock
-      </button>
-      <button
-      id="button"
-      name='paper'
-        onClick={this.chooseUserWeapon}>
+        <button class="ui button"
+        name="rock" onClick={this.chooseUserWeapon}>
+          Rock 
+          </button>
+        <button class="ui button"
+        name="paper" onClick={this.chooseUserWeapon}>
           Paper
-      </button>
-      <button
-      id="button"
-      name='scissor'
-        onClick={this.chooseUserWeapon}>
+        </button>
+        <button class="ui button"
+        name="scissor" onClick={this.chooseUserWeapon}>
           Scissor
-      </button>
-      <h1> User chose {this.state.userChoice}</h1>
-      <button
-      onClick={this.playGame}>Play Game!</button>
+        </button>
+        <h1> Choose you weapon {this.state.userChoice}</h1>
+        <button class="ui button" onClick={this.playGame}>Play Game!</button>
 
-      <h1>{this.state.winner}</h1>
-    </div>
-    )
+        <h1>{this.state.winner}</h1>
+      </div>
+    );
   }
 }
 
