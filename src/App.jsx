@@ -10,21 +10,33 @@ class App extends Component {
     };
   }
   changeResult = () => {
-    this.setState({result: "rock" });
+    this.setState({rock: "lose" });
   }
   render() {
-    return
-    <div>
+    return ( 
+      <div>
       <h1> User {this.state.rock}</h1>
-      <p>
-        It is a {this.state.paper}
-      </p>
+      <h2>
+        User {this.state.rock} 
+      </h2>
       <button
-      type="button"
-        onClick={this.changeResult}>
-          Play Game
+      id="button"
+        onClick={this.changeRock}>
+          Rock
       </button>
-    </div>;
+      <button
+      id="button"
+        onClick={this.changePaper}>
+          Paper
+      </button>
+      <button
+      id="button"
+        onClick={this.changeScissor}>
+          Scissor
+      </button>
+
+    </div>
+    )
   }
 }
 
