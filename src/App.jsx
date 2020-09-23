@@ -35,18 +35,18 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1> Choose you weapon {this.state.userChoice}</h1>
+        <h1 id="message"> Choose you weapon: {"you picked " + this.state.userChoice}</h1>
         <br>
         </br>
-        <button class="ui button"
+        <button id="rock" class="ui button"
         name="rock" onClick={this.chooseUserWeapon}>
           Rock
           </button>
-        <button class="ui button"
+        <button id="paper" class="ui button"
         name="paper" onClick={this.chooseUserWeapon}>
           Paper
         </button>
-        <button class="ui button"
+        <button id="scissor" class="ui button"
         name="scissor" onClick={this.chooseUserWeapon}>
           Scissor
         </button>
@@ -54,7 +54,7 @@ class App extends React.Component {
         </br>
         <br>
         </br>
-        <button class="ui button" onClick={this.playGame}>Play Game!</button>
+        <button id="play-game" class="ui button" onClick={this.playGame}>Play Game!</button>
 
         <h1>{this.state.winner}</h1>
       </div>
