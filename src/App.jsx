@@ -35,9 +35,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <h1> Choose you weapon {this.state.userChoice}</h1>
+        <br>
+        </br>
         <button class="ui button"
         name="rock" onClick={this.chooseUserWeapon}>
-          Rock 
+          Rock
           </button>
         <button class="ui button"
         name="paper" onClick={this.chooseUserWeapon}>
@@ -47,7 +50,10 @@ class App extends React.Component {
         name="scissor" onClick={this.chooseUserWeapon}>
           Scissor
         </button>
-        <h1> Choose you weapon {this.state.userChoice}</h1>
+        <br>
+        </br>
+        <br>
+        </br>
         <button class="ui button" onClick={this.playGame}>Play Game!</button>
 
         <h1>{this.state.winner}</h1>
