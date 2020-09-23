@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import 'semantic-ui-css/semantic.min.css'
 
-const option = ["rock", "paper", "scissors"];
+let weapons = ["rock", "paper", "scissors"];
 
 class App extends React.Component {
   state = {
     userChoice: "",
-    winner: "",
-    computerChoice: ""
+    computerChoice: "",
+    winner: ""
   };
 
   chooseUserWeapon = (event) => {
@@ -16,11 +16,13 @@ class App extends React.Component {
 
   playGame = async () => {
     let userWeapon = this.state.userChoice;
-    let computerWeapon = "rock"
-    debugger;
+    let computerWeapon = this.state.computerChoice;
     let winner = await this.theWinnerIs(userWeapon, computerWeapon);
 
-    this.setState({ winner: winner });
+    this.setState({
+      computerChoice: weapons[Math.floor(Math.random() * weapons.length)],
+      winner: winner
+    });
   };
 
   theWinnerIs = (userWeapon, computerWeapon) => {
@@ -33,9 +35,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {/* <h2>
-        User {this.props.rock} 
-      </h2> */}
         <button class="ui button"
         name="rock" onClick={this.chooseUserWeapon}>
           Rock 
