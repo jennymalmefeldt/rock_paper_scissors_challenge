@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import "semantic-ui-css/semantic.min.css";
+import { playGame, randomizeWeapon } from "./modules/rpsGame";
 
-let weapons = ["rock", "paper", "scissor"];
-
-class App extends React.Component {
+class App extends Component {
   state = {
     userChoice: "",
     computerChoice: "",
@@ -13,35 +12,13 @@ class App extends React.Component {
   chooseUserWeapon = (event) => {
     this.setState({ userChoice: event.target.name });
   };
-
-  playGame = async () => {
+  play = () => {
     let userWeapon = this.state.userChoice;
-    let computerWeapon = this.state.computerChoice;
-
-    let winner = await this.theWinnerIs(userWeapon, computerWeapon);
-
-    let computer = weapons[Math.floor(Math.random() * weapons.length)];
-
-    this.setState({
-      computerChoice: computer,
-      winner: winner,
-    });
+    let computerWeapon = randomizeWeapon()
+    let results = playGame(userWeapon, computerWeapon)
+    this.setState({winner: results.winner})
   };
-
-  theWinnerIs = (userWeapon, computerWeapon) => {
-    if (userWeapon === computerWeapon) {
-      return "IT'S A TIE";
-    } else if (
-      (userWeapon === "rock" && computerWeapon === "scissor") ||
-      (userWeapon === "paper" && computerWeapon === "rock") ||
-      (userWeapon === "scissor" && computerWeapon === "paper")
-    ) {
-      return "USER WINS!";
-    } else {
-      return "COMPUTER WINS!";
-    }
-  };
-
+ 
   render() {
     return (
       <div>
@@ -56,7 +33,7 @@ class App extends React.Component {
         <br></br>
         <button
           id="rock"
-          class="ui button"
+          className="ui button"
           name="rock"
           onClick={this.chooseUserWeapon}
         >
@@ -64,7 +41,7 @@ class App extends React.Component {
         </button>
         <button
           id="paper"
-          class="ui button"
+          className="ui button"
           name="paper"
           onClick={this.chooseUserWeapon}
         >
@@ -72,7 +49,7 @@ class App extends React.Component {
         </button>
         <button
           id="scissor"
-          class="ui button"
+          className="ui button"
           name="scissor"
           onClick={this.chooseUserWeapon}
         >
@@ -80,7 +57,11 @@ class App extends React.Component {
         </button>
         <br></br>
         <br></br>
-        <button id="play-game" class="ui button" onClick={this.playGame}>
+        <button
+          id="play-game"
+          className="ui button"
+          onClick={() => this.play()}
+        >
           Play Game!
         </button>
 

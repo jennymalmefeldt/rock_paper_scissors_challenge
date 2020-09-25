@@ -1,6 +1,6 @@
 describe("User can choose a weapon", () => {
   beforeEach(() => {
-    cy.visit("/");
+    cy.visit("/")
   });
 
   describe('User tab and it', () => {
