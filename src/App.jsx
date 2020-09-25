@@ -42,19 +42,12 @@ class App extends React.Component {
     }
   };
 
-  // theWinnerIs = (userWeapon, computerWeapon) => {
-  //   if (userWeapon !== computerWeapon) {
-  //     return "USER WINS!";
-  //   } else {
-  //     return "ITS A TIE!";
-  //   }
-  // };
   render() {
     return (
       <div>
         <h1 id="message">
           {" "}
-          Computer weapon! {" Computer picked: " + this.state.computerChoice}
+          Computer {" picked: " + this.state.computerChoice}
         </h1>
         <h1 id="message">
           {" "}
