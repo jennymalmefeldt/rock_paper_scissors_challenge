@@ -1,6 +1,6 @@
 const getResults = (userOne, userTwo) => {
   if (userOne === userTwo) {
-    return "IT'S A TIE";
+    return "IT'S A TIE!";
   } else if (
     (userOne === "rock" && userTwo === "scissor") ||
     (userOne === "paper" && userTwo === "rock") ||
@@ -14,8 +14,8 @@ const getResults = (userOne, userTwo) => {
 
 const randomizeWeapon = () => {
   const weapons = ["rock", "paper", "scissor"];
-  const userTwo = weapons[Math.floor(Math.random() * weapons.length)];
-  return userTwo;
+  const randomWeapon = weapons[Math.floor(Math.random() * weapons.length)];
+  return randomWeapon;
 };
 
 const playGame = (userOne, userTwo) => {

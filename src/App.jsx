@@ -16,18 +16,16 @@ class App extends Component {
     let userWeapon = this.state.userChoice;
     let computerWeapon = randomizeWeapon()
     let results = playGame(userWeapon, computerWeapon)
-    this.setState({winner: results.winner})
+    this.setState({winner: results.winner, computerChoice: computerWeapon})
   };
  
   render() {
     return (
       <div>
-        <h1 id="message">
-          {" "}
-          Computer {" picked: " + this.state.computerChoice}
+        <h1 id="computer-choice-message">
+          Computer picked: {this.state.computerChoice}
         </h1>
-        <h1 id="message">
-          {" "}
+        <h1 id="player-choice-message">
           Choose you weapon! {"You picked: " + this.state.userChoice}
         </h1>
         <br></br>
@@ -65,7 +63,7 @@ class App extends Component {
           Play Game!
         </button>
 
-        <h1>{this.state.winner}</h1>
+        <h1 id="result-message">{this.state.winner}</h1>
       </div>
     );
   }
